@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.UUID;
 
+
 @Entity
 @Table(name = "prestiti")
 public class Prestito {
@@ -15,7 +16,7 @@ public class Prestito {
     @ManyToOne
     @JoinColumn(name = "utente_id", nullable = false)
     private Utente utente;
-    
+
     @ManyToOne
     @JoinColumn(name = "elemento_id", nullable = false)
     private ElementoGenerico elementoNoleggiato;
@@ -26,8 +27,7 @@ public class Prestito {
     public Prestito() {
     }
 
-    public Prestito(UUID id, Utente utente, ElementoGenerico elementoNoleggiato, LocalDate dataInizioPrestito, LocalDate dataFinePrestitoPrevista, LocalDate dataFinePrestitoEffettiva) {
-        this.id = id;
+    public Prestito(Utente utente, ElementoGenerico elementoNoleggiato, LocalDate dataInizioPrestito, LocalDate dataFinePrestitoEffettiva) {
         this.utente = utente;
         this.elementoNoleggiato = elementoNoleggiato;
         this.dataInizioPrestito = dataInizioPrestito;

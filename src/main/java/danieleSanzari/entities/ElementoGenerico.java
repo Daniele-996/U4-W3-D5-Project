@@ -24,8 +24,7 @@ public abstract class ElementoGenerico {
     public ElementoGenerico() {
     }
 
-    public ElementoGenerico(UUID ISBN, String titolo, LocalDate annoDiUscita, int numeroPagine) {
-        this.ISBN = ISBN;
+    public ElementoGenerico(String titolo, LocalDate annoDiUscita, int numeroPagine) {
         this.titolo = titolo;
         this.annoDiUscita = annoDiUscita;
         this.numeroPagine = numeroPagine;

@@ -3,21 +3,23 @@ package danieleSanzari.entities;
 import danieleSanzari.enums.Genere;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Entity
 @DiscriminatorValue("libri")
 public class Libro extends ElementoGenerico {
     private String autore;
+    @Enumerated(EnumType.STRING)
     private Genere genere;
 
     public Libro() {
     }
 
-    public Libro(UUID ISBN, String titolo, LocalDate annoDiUscita, int numeroPagine, String autore, Genere genere) {
-        super(ISBN, titolo, annoDiUscita, numeroPagine);
+    public Libro(String titolo, LocalDate annoDiUscita, int numeroPagine, String autore, Genere genere) {
+        super(titolo, annoDiUscita, numeroPagine);
         this.autore = autore;
         this.genere = genere;
     }

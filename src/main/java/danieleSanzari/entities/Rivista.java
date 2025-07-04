@@ -4,20 +4,22 @@ package danieleSanzari.entities;
 import danieleSanzari.enums.Periodicità;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Entity
 @DiscriminatorValue("riviste")
 public class Rivista extends ElementoGenerico {
+    @Enumerated(EnumType.STRING)
     private Periodicità periodicità;
 
     public Rivista() {
     }
 
-    public Rivista(UUID ISBN, String titolo, LocalDate annoDiUscita, int numeroPagine, Periodicità periodicità) {
-        super(ISBN, titolo, annoDiUscita, numeroPagine);
+    public Rivista(String titolo, LocalDate annoDiUscita, int numeroPagine, Periodicità periodicità) {
+        super(titolo, annoDiUscita, numeroPagine);
         this.periodicità = periodicità;
     }
 
