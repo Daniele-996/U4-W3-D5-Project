@@ -28,4 +28,6 @@ public class ElementoGenericoDAO {
         if (found == null) throw new NotFoundException(elementoId);
         return found;
     }
+    
+
 }
