@@ -1,23 +1,22 @@
 package danieleSanzari.DAO;
 
-import danieleSanzari.entities.ElementoGenerico;
+import danieleSanzari.entities.Prestito;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
-public class ElementoGenericoDAO {
+public class PrestitoDAO {
     private final EntityManager entityManager;
 
-    public ElementoGenericoDAO(EntityManager entityManager) {
+    public PrestitoDAO(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
-    public void save(ElementoGenerico newEl) {
+    public void save(Prestito newPrestito) {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
-        entityManager.persist(newEl);
+        entityManager.persist(newPrestito);
         transaction.commit();
 
-        System.out.println("L'elemento " + newEl.getTitolo() + " è stato creato correttamente!!");
+        System.out.println("Il prestito " + newPrestito.getId() + " è stato creato correttamente!!");
     }
-
 }
